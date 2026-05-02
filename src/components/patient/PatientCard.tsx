@@ -38,9 +38,7 @@ export function PatientCard({ patient }: { patient: Patient }) {
         </div>
         <div className="flex items-center gap-2 text-xs">
           <User className="h-3.5 w-3.5 text-muted-foreground" />
-          <span className="text-muted-foreground">
-            {patient.doctor}
-          </span>
+          <span className="text-muted-foreground">{patient.doctor}</span>
         </div>
         <div className="flex items-center gap-2 text-xs">
           <Mail className="h-3.5 w-3.5 text-muted-foreground" />
@@ -50,9 +48,7 @@ export function PatientCard({ patient }: { patient: Patient }) {
         </div>
         <div className="flex items-center gap-2 text-xs">
           <Phone className="h-3.5 w-3.5 text-muted-foreground" />
-          <span className="text-muted-foreground">
-            {patient.phone}
-          </span>
+          <span className="text-muted-foreground">{patient.phone}</span>
         </div>
       </div>
 

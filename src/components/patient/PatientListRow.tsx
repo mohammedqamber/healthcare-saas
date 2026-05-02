@@ -41,9 +41,7 @@ export function PatientListRow({ patient }: { patient: Patient }) {
       </div>
 
       <div className="hidden lg:block text-right min-w-[120px]">
-        <p className="text-[10px] text-muted-foreground">
-          Next Appointment
-        </p>
+        <p className="text-[10px] text-muted-foreground">Next Appointment</p>
         <p className="text-xs font-medium">{patient.nextAppointment}</p>
       </div>
 

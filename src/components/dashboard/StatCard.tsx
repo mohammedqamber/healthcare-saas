@@ -23,9 +23,7 @@ export function StatCard({
     <div className="rounded-xl border border-border bg-white p-5 shadow-sm">
       <div className="flex items-start justify-between">
         <div className="space-y-3">
-          <p className="text-sm font-medium text-muted-foreground">
-            {title}
-          </p>
+          <p className="text-sm font-medium text-muted-foreground">{title}</p>
           <p className="text-2xl font-bold tracking-tight">{value}</p>
           {trend !== undefined && (
             <div className="flex items-center gap-1 text-xs">
@@ -40,9 +38,7 @@ export function StatCard({
                 {trend > 0 ? "+" : ""}
                 {trend}%
               </span>
-              <span className="text-muted-foreground">
-                {trendLabel}
-              </span>
+              <span className="text-muted-foreground">{trendLabel}</span>
             </div>
           )}
         </div>
