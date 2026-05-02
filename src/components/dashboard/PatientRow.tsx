@@ -19,22 +19,22 @@ function getInitials(name: string): string {
 
 export function PatientRow({ patient }: { patient: Patient }) {
   return (
-    <div className="flex items-center gap-4 rounded-lg border border-[var(--border)] bg-white p-4 transition-shadow hover:shadow-sm">
-      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--accent)] text-sm font-semibold text-[var(--primary)]">
+    <div className="flex items-center gap-4 rounded-lg border border-border bg-white p-4 transition-shadow hover:shadow-sm">
+      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-sm font-semibold text-primary">
         {getInitials(patient.name)}
       </div>
       <div className="min-w-0 flex-1">
         <p className="truncate text-sm font-medium">{patient.name}</p>
-        <p className="text-xs text-[var(--muted-foreground)]">
+        <p className="text-xs text-muted-foreground">
           {patient.condition} &bull; {patient.age} yrs
         </p>
       </div>
       <div className="hidden text-right sm:block">
-        <p className="text-xs text-[var(--muted-foreground)]">Last Visit</p>
+        <p className="text-xs text-muted-foreground">Last Visit</p>
         <p className="text-sm">{patient.lastVisit}</p>
       </div>
       <div className="hidden text-right md:block">
-        <p className="text-xs text-[var(--muted-foreground)]">Next Appt</p>
+        <p className="text-xs text-muted-foreground">Next Appt</p>
         <p className="text-sm">{patient.nextAppointment}</p>
       </div>
       <span
@@ -44,7 +44,7 @@ export function PatientRow({ patient }: { patient: Patient }) {
       >
         {patient.status}
       </span>
-      <ArrowUpRight className="h-4 w-4 shrink-0 text-[var(--muted-foreground)]" />
+      <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground" />
     </div>
   );
 }

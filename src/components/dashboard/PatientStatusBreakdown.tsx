@@ -19,7 +19,7 @@ export function PatientStatusBreakdown({
   }));
 
   return (
-    <div className="rounded-xl border border-[var(--border)] bg-white p-5">
+    <div className="rounded-xl border border-border bg-white p-5">
       <h3 className="mb-3 text-sm font-semibold">Patient Status Breakdown</h3>
       <div className="space-y-2.5">
         {counts.map(({ status, count }) => (
@@ -29,9 +29,9 @@ export function PatientStatusBreakdown({
                 <span>{status}</span>
                 <span className="font-medium">{count}</span>
               </div>
-              <div className="h-2 overflow-hidden rounded-full bg-[var(--muted)]">
+              <div className="h-2 overflow-hidden rounded-full bg-muted">
                 <div
-                  className="h-full rounded-full bg-[var(--primary)] transition-all"
+                  className="h-full rounded-full bg-primary transition-all"
                   style={{ width: `${(count / total) * 100}%` }}
                 />
               </div>

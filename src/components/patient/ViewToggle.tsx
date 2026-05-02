@@ -16,8 +16,8 @@ export function ViewToggle({ viewMode, onChange }: ViewToggleProps) {
         className={cn(
           "flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
           viewMode === "grid"
-            ? "bg-[var(--primary)] text-white"
-            : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]",
+            ? "bg-primary text-white"
+            : "text-muted-foreground hover:text-foreground",
         )}
       >
         <Grid3X3 className="h-3.5 w-3.5" />
@@ -28,8 +28,8 @@ export function ViewToggle({ viewMode, onChange }: ViewToggleProps) {
         className={cn(
           "flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
           viewMode === "list"
-            ? "bg-[var(--primary)] text-white"
-            : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]",
+            ? "bg-primary text-white"
+            : "text-muted-foreground hover:text-foreground",
         )}
       >
         <List className="h-3.5 w-3.5" />

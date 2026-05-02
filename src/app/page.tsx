@@ -20,9 +20,9 @@ export default function Home() {
   }, [user, initialized, router]);
 
   return (
-    <div className="flex h-screen w-full items-center justify-center bg-[var(--background)]">
+    <div className="flex h-screen w-full items-center justify-center bg-background">
       <div className="flex items-center gap-3">
-        <Activity className="h-6 w-6 animate-pulse text-[var(--primary)]" />
+        <Activity className="h-6 w-6 animate-pulse text-primary" />
         <span className="text-lg font-medium">Loading...</span>
       </div>
     </div>

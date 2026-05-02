@@ -21,7 +21,7 @@ export function BloodTypeDistribution({
   );
 
   return (
-    <div className="rounded-xl border border-[var(--border)] bg-white p-5">
+    <div className="rounded-xl border border-border bg-white p-5">
       <h3 className="mb-3 text-sm font-semibold">Blood Type Distribution</h3>
       <div className="space-y-2.5">
         {bloodTypes.map(([bloodType, count]) => (

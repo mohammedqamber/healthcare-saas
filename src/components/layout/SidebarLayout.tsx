@@ -67,10 +67,10 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
 
   if (!initialized) {
     return (
-      <div className="flex h-screen w-full items-center justify-center bg-[var(--background)]">
+      <div className="flex h-screen w-full items-center justify-center bg-background">
         <div className="flex items-center gap-3">
-          <Activity className="h-6 w-6 animate-pulse text-[var(--primary)]" />
-          <span className="text-lg font-medium text-[var(--foreground)]">
+          <Activity className="h-6 w-6 animate-pulse text-primary" />
+          <span className="text-lg font-medium text-foreground">
             Loading...
           </span>
         </div>
@@ -79,7 +79,7 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="flex h-screen w-full bg-[var(--background)] overflow-hidden">
+    <div className="flex h-screen w-full bg-background overflow-hidden">
       {mobileOpen && (
         <div
           className="fixed inset-0 z-40 bg-black/50 md:hidden"
@@ -89,12 +89,12 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
 
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-50 flex w-64 flex-col bg-[var(--sidebar-bg)] text-[var(--sidebar-fg)] transition-transform md:static md:translate-x-0",
+          "fixed inset-y-0 left-0 z-50 flex w-64 flex-col bg-sidebar-bg text-sidebar-fg transition-transform md:static md:translate-x-0",
           mobileOpen ? "translate-x-0" : "-translate-x-full",
         )}
       >
-        <div className="flex items-center gap-3 px-6 py-5 border-b border-[var(--sidebar-border)]">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--sidebar-primary)]">
+        <div className="flex items-center gap-3 px-6 py-5 border-b border-sidebar-border">
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sidebar-primary">
             <Activity className="h-5 w-5 text-white" />
           </div>
           <div>
@@ -115,8 +115,8 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
                 className={cn(
                   "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
                   isActive
-                    ? "bg-[var(--sidebar-accent)] text-white"
-                    : "text-slate-400 hover:bg-[var(--sidebar-accent)] hover:text-white",
+                    ? "bg-sidebar-accent text-white"
+                    : "text-slate-400 hover:bg-sidebar-accent hover:text-white",
                 )}
               >
                 <Icon className="h-4 w-4" />
@@ -185,19 +185,19 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
               </button>
 
               {notifOpen && (
-                <div className="absolute right-0 top-full mt-2 w-80 rounded-xl border border-[var(--border)] bg-white shadow-lg z-50">
-                  <div className="flex items-center justify-between p-3 border-b border-[var(--border)]">
+                <div className="absolute right-0 top-full mt-2 w-80 rounded-xl border border-border bg-white shadow-lg z-50">
+                  <div className="flex items-center justify-between p-3 border-b border-border">
                     <h3 className="text-sm font-semibold">Notifications</h3>
                     <button
                       onClick={() => setNotifOpen(false)}
-                      className="p-1 rounded hover:bg-[var(--muted)]"
+                      className="p-1 rounded hover:bg-muted"
                     >
                       <X className="h-3.5 w-3.5" />
                     </button>
                   </div>
                   <div className="max-h-80 overflow-y-auto">
                     {notifications.length === 0 ? (
-                      <p className="p-4 text-sm text-[var(--muted-foreground)] text-center">
+                      <p className="p-4 text-sm text-muted-foreground text-center">
                         No notifications yet. Click &quot;Test
                         Notification&quot; to see one.
                       </p>
@@ -206,18 +206,18 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
                         <div
                           key={n.id}
                           className={cn(
-                            "p-3 border-b border-[var(--border)] last:border-0 cursor-pointer hover:bg-[var(--muted)]",
-                            !n.read && "bg-[var(--accent)]",
+                            "p-3 border-b border-border last:border-0 cursor-pointer hover:bg-muted",
+                            !n.read && "bg-accent",
                           )}
                           onClick={() => {
                             useNotificationStore.getState().markAsRead(n.id);
                           }}
                         >
                           <p className="text-sm font-medium">{n.title}</p>
-                          <p className="text-xs text-[var(--muted-foreground)] mt-0.5">
+                          <p className="text-xs text-muted-foreground mt-0.5">
                             {n.body}
                           </p>
-                          <p className="text-[10px] text-[var(--muted-foreground)] mt-1">
+                          <p className="text-[10px] text-muted-foreground mt-1">
                             {new Date(n.timestamp).toLocaleTimeString()}
                           </p>
                         </div>

@@ -31,8 +31,8 @@ export function CommonConditions({
             key={condition}
             className="flex items-center justify-between text-sm"
           >
-            <span className="text-[var(--foreground)]">{condition}</span>
-            <span className="font-medium text-[var(--muted-foreground)]">
+            <span className="text-foreground">{condition}</span>
+            <span className="font-medium text-muted-foreground">
               {count} patients
             </span>
           </div>
