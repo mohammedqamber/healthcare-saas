@@ -30,20 +30,8 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
   const { notifications, showLocalNotification } = useNotificationStore();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
-  const [initialized, setInitialized] = useState(false);
 
   const unreadCount = notifications.filter((n) => !n.read).length;
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const { user: u, initialized: i } = useAuthStore.getState();
-      if (!u && i) {
-        router.push("/login");
-      }
-      setInitialized(true);
-    }, 100);
-    return () => clearTimeout(timer);
-  }, [router]);
 
   useEffect(() => {
     if ("serviceWorker" in navigator) {
@@ -55,7 +43,7 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
 
   const handleLogout = async () => {
     await logout();
-    router.push("/login");
+    router.push("/");
   };
 
   const handleDemoNotification = () => {
@@ -64,19 +52,6 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
       "Patient William Brown requires immediate attention - BP critical",
     );
   };
-
-  if (!initialized) {
-    return (
-      <div className="flex h-screen w-full items-center justify-center bg-background">
-        <div className="flex items-center gap-3">
-          <Activity className="h-6 w-6 animate-pulse text-primary" />
-          <span className="text-lg font-medium text-foreground">
-            Loading...
-          </span>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="flex h-screen w-full bg-background overflow-hidden">

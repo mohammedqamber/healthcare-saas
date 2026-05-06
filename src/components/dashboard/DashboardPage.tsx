@@ -1,7 +1,6 @@
 "use client";
 
 import { Users, HeartPulse, Activity, Calendar } from "lucide-react";
-import { SidebarLayout } from "@/components/layout/SidebarLayout";
 import { usePatientStore } from "@/stores/patientStore";
 
 import { StatCard } from "@/components/dashboard/StatCard";
@@ -59,58 +58,54 @@ export default function DashboardPage() {
   const recentPatients = useRecentPatients(patients);
 
   return (
-    <SidebarLayout>
-      <div className="space-y-6">
-        {/* Header */}
-        <div>
-          <h1 className="text-2xl font-bold tracking-tight">Dashboard</h1>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Overview of your practice today
-          </p>
-        </div>
+    <div className="space-y-6">
+      {/* Header */}
+      <div>
+        <h1 className="text-2xl font-bold tracking-tight">Dashboard</h1>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Overview of your practice today
+        </p>
+      </div>
 
-        {/* Stats Grid */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {STATS_CONFIG.map(
-            ({ title, key, icon, color, trend, trendLabel }) => (
-              <StatCard
-                key={key}
-                title={title}
-                value={stats[key]}
-                icon={icon}
-                trend={trend}
-                trendLabel={trendLabel}
-                color={color}
-              />
-            ),
-          )}
-        </div>
+      {/* Stats Grid */}
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {STATS_CONFIG.map(({ title, key, icon, color, trend, trendLabel }) => (
+          <StatCard
+            key={key}
+            title={title}
+            value={stats[key]}
+            icon={icon}
+            trend={trend}
+            trendLabel={trendLabel}
+            color={color}
+          />
+        ))}
+      </div>
 
-        {/* Recent Patients */}
-        <div className="space-y-3">
-          <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold">Recent Patients</h2>
-            <a
-              href="/patients"
-              className="text-sm font-medium text-primary hover:underline"
-            >
-              View all
-            </a>
-          </div>
-          <div className="space-y-2">
-            {recentPatients.map((patient) => (
-              <PatientRow key={patient.id} patient={patient} />
-            ))}
-          </div>
+      {/* Recent Patients */}
+      <div className="space-y-3">
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-semibold">Recent Patients</h2>
+          <a
+            href="/patients"
+            className="text-sm font-medium text-primary hover:underline"
+          >
+            View all
+          </a>
         </div>
-
-        {/* Analytics Grid */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <PatientStatusBreakdown patients={patients} />
-          <CommonConditions patients={patients} />
-          <BloodTypeDistribution patients={patients} />
+        <div className="space-y-2">
+          {recentPatients.map((patient) => (
+            <PatientRow key={patient.id} patient={patient} />
+          ))}
         </div>
       </div>
-    </SidebarLayout>
+
+      {/* Analytics Grid */}
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <PatientStatusBreakdown patients={patients} />
+        <CommonConditions patients={patients} />
+        <BloodTypeDistribution patients={patients} />
+      </div>
+    </div>
   );
 }
